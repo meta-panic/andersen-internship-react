@@ -1,9 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Header(props) {
-    console.log(props);
-    const {content} = props;
-    console.log(content);
+    const { content } = props;
     return (
         <header>
             <h1>
@@ -15,5 +14,13 @@ function Header(props) {
         </header>
     );
 }
+
+/* check props types and existence */
+Header.propTypes = {
+    content: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+    }).isRequired,
+};
 
 export default Header;
