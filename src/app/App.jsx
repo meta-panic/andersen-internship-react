@@ -6,28 +6,29 @@ import CardList from './AnimeCards/CardList';
 import headerContant from './Header/headerContent';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isAnimeInfo: false,
-        };
-    }
+    state = {
+        isAnimeInfo: false,
+    };
 
-    addAnimeInfo = (e) => {
-        console.log("state of App was changed");
+    addAnimeInfoHandler = (e, filterState) => {
+        fetch(`https://kitsu.io/api/edge/anime?filter[ageRating]=${filterState.checkedRating}&page[limit]=5&page[offset]=0`)
+            .then(response => response.json())
+            .then((data) => {
+                this.setState({
+                    isAnimeInfo: true,
+                    animeInfo: data,
+                });
+            })
+            .catch(err => console.log(`Runtime error: ${err}`));
         e.preventDefault();
-        this.setState({
-            isAnimeInfo: true,
-        });
     };
 
     render() {
-        const test = [{name: 'Anime1'}, {name: 'Anime2'}];
-        const animeInfo = this.state.isAnimeInfo?<CardList cards={test}></CardList>:null;
+        const animeInfo = this.state.isAnimeInfo?<CardList data={this.state.animeInfo.data}></CardList>:null;       
         return (
-            <div className='appContainer'>
+            <div className="appContainer">
                 <Header content={headerContant} />
-                <Sidebar addAnimeInfo={this.addAnimeInfo} />
+                <Sidebar addAnimeInfoHandler={this.addAnimeInfoHandler} />
                 {animeInfo}
             </div>
         );

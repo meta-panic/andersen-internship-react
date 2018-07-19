@@ -3,25 +3,28 @@ import PropTypes from 'prop-types';
 
 import AnimeCard from './AnimeCard';
 
-function CardList({ cards }) {
-    const animeCards = cards.map(card => (
-        <li>
-            <AnimeCard animeInfo={card} />
-        </li>
-    ));
+const propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape(
+        {
+            attributes: PropTypes.shape({
+                canonicalTitle: PropTypes.string,
+            }),
+        },
+    )).isRequired,
+};
 
+function CardList({ data }) {
     return (
         <ul>
-            {animeCards}
+            { data.map(card => (
+                <li key={card.id}>
+                    <AnimeCard attributes={card.attributes} animeId={card.id} />
+                </li>
+            ))}
         </ul>
     );
 }
 
-/* check props types and existence */
-CardList.propTypes = {
-    cards: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-    })).isRequired,
-};
+CardList.propTypes = propTypes;
 
 export default CardList;
