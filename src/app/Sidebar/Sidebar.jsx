@@ -1,9 +1,14 @@
 import React from 'react';
+import classNames from 'classnames/bind';
+
 import PropTypes from 'prop-types';
+import styles from './SideBar.css';
 
 const propTypes = {
     addAnimeInfoHandler: PropTypes.func.isRequired,
 };
+
+const cx = classNames.bind(styles);
 
 class Sidebar extends React.Component {
     state = {
@@ -29,8 +34,8 @@ class Sidebar extends React.Component {
 
     render() {
         return (
-            <aside>
-                <button type="button" onClick={this.onClick}>
+            <aside className={cx('sidebar')}>
+                <button className={cx('getAnimeButton')} type="button" onClick={this.onClick}>
                     find
                 </button>
                 <fieldset name="ageRating">

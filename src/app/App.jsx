@@ -1,9 +1,13 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import CardList from './AnimeCards/CardList';
 import headerContant from './Header/headerContent';
+import styles from './App.css';
+
+const cx = classNames.bind(styles);
 
 class App extends React.Component {
     state = {
@@ -27,7 +31,7 @@ class App extends React.Component {
         const { isAnimeInfo } = this.state;
         const { animeInfo } = this.state;
         return (
-            <div className="appContainer">
+            <div className={cx('сontainer')}>
                 <Header content={headerContant} />
                 <Sidebar addAnimeInfoHandler={this.addAnimeInfoHandler} />
                 { isAnimeInfo ? <CardList data={animeInfo} /> : null}
