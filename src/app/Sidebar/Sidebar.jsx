@@ -1,27 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    addAnimeInfoHandler: PropTypes.func.isRequired,
+};
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            checkedRating: ['G','R18'],
-        };
-    }
+    state = {
+        checkedRating: ['G', 'R18'],
+    };
 
     onClick = (event) => {
         this.props.addAnimeInfoHandler(event, this.state);
     };
 
     handleRatingChange(event) {
-        const target = event.target;
+        const { target } = event;
         const isChecked = target.checked;
-        const name = target.name;
-    
-        this.setState((prevState, props)=> {
-            const arr = new Set(prevState.checkedRating);           
-            isChecked? arr.add(name): arr.delete(name);
-        
-            return {checkedRating: Array.from(arr)};
+        const { name } = target;
+
+        this.setState((prevState) => {
+            const arr = new Set(prevState.checkedRating);
+            isChecked ? arr.add(name) : arr.delete(name);
+
+            return { checkedRating: Array.from(arr) };
         });
     }
 
@@ -32,13 +34,21 @@ class Sidebar extends React.Component {
                     find
                 </button>
                 <fieldset name="ageRating">
-                    <legend>Age rating</legend>        
-                    {['G','PG','R','R18'].map( rating => (
+                    <legend>
+                        Age rating
+                    </legend>
+                    {['G', 'PG', 'R', 'R18'].map(rating => (
                         <div key={rating}>
-                            <input id={rating} name={rating} type="checkbox"
-                                checked={this.state.checkedRating.indexOf(rating) > -1 ? true : false} 
-                                onChange={this.handleRatingChange.bind(this)}/>
-                            <label htmlFor={rating}>{rating}</label>
+                            <label htmlFor={rating}>
+                                <input
+                                    id={rating}
+                                    name={rating}
+                                    type="checkbox"
+                                    checked={this.state.checkedRating.indexOf(rating) > -1}
+                                    onChange={this.handleRatingChange.bind(this)}
+                                />
+                                {rating}
+                            </label>
                         </div>
                     ))}
                 </fieldset>
@@ -46,5 +56,7 @@ class Sidebar extends React.Component {
         );
     }
 }
+
+Sidebar.propTypes = propTypes;
 
 export default Sidebar;

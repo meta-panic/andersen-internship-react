@@ -16,20 +16,21 @@ class App extends React.Component {
             .then((data) => {
                 this.setState({
                     isAnimeInfo: true,
-                    animeInfo: data,
+                    animeInfo: data.data,
                 });
             })
-            .catch(err => console.log(`Runtime error: ${err}`));
+            .catch(err => console.error(`Runtime error: ${err}`));
         e.preventDefault();
     };
 
     render() {
-        const animeInfo = this.state.isAnimeInfo?<CardList data={this.state.animeInfo.data}></CardList>:null;       
+        const { isAnimeInfo } = this.state;
+        const { animeInfo } = this.state;
         return (
             <div className="appContainer">
                 <Header content={headerContant} />
                 <Sidebar addAnimeInfoHandler={this.addAnimeInfoHandler} />
-                {animeInfo}
+                { isAnimeInfo ? <CardList data={animeInfo} /> : null}
             </div>
         );
     }

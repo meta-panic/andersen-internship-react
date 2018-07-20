@@ -18,7 +18,7 @@ function CardList({ data }) {
         <ul>
             { data.map(card => (
                 <li key={card.id}>
-                    <AnimeCard attributes={card.attributes} animeId={card.id} />
+                    <AnimeCard attributes={card.attributes} />
                 </li>
             ))}
         </ul>
