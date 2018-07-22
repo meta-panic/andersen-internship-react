@@ -21,7 +21,7 @@ function CardList({ data }) {
     return (
         <ul className={cx('animeInfoContainer')}>
             { data.map(card => (
-                <li key={card.id}>
+                <li className={cx('animeInfo')} key={card.id}>
                     <AnimeCard attributes={card.attributes} />
                 </li>
             ))}

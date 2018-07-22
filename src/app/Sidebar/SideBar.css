@@ -10,16 +10,16 @@
 
 /* button */
 .getAnimeButton {
+    composes: buttonReset from '../CSS/reset.css';
     display: block;
 
     margin: 5px 10px;
     padding: 5px 10px;
 
     background-color: #E9E9E9;
-    border: none;
-    outline: none;
 }
 
+  
 .getAnimeButton:hover {
     background-color: #4EB1BA;
     color: #E9E9E9;
@@ -31,4 +31,9 @@
 
     border: none;
     border-top: 1px solid #E9E9E9;
+}
+
+.checkbox {
+    composes: checkboxInputReset from '../CSS/reset.css';
+    composes: checkbox from '../CSS/elements.css';
 }

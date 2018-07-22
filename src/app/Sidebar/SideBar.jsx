@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
                         Age rating
                     </legend>
                     {['G', 'PG', 'R', 'R18'].map(rating => (
-                        <div key={rating}>
+                        <div className={cx('checkbox')} key={rating}>
                             <label htmlFor={rating}>
                                 <input
                                     id={rating}

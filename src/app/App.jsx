@@ -15,7 +15,7 @@ class App extends React.Component {
     };
 
     addAnimeInfoHandler = (e, filterState) => {
-        fetch(`https://kitsu.io/api/edge/anime?filter[ageRating]=${filterState.checkedRating}&page[limit]=5&page[offset]=0`)
+        fetch(`https://kitsu.io/api/edge/anime?filter[ageRating]=${filterState.checkedRating}&page[limit]=8&page[offset]=0`)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
