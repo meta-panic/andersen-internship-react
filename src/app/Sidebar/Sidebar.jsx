@@ -19,7 +19,7 @@ class Sidebar extends React.Component {
         this.props.addAnimeInfoHandler(event, this.state);
     };
 
-    handleRatingChange(event) {
+    handleRatingChange = (event) => {
         const { target } = event;
         const isChecked = target.checked;
         const { name } = target;
@@ -38,8 +38,8 @@ class Sidebar extends React.Component {
                 <button className={cx('getAnimeButton')} type="button" onClick={this.onClick}>
                     find
                 </button>
-                <fieldset name="ageRating">
-                    <legend>
+                <fieldset className={cx('ratingFilter')} name="ageRating">
+                    <legend className={cx('filterName')}>
                         Age rating
                     </legend>
                     {['G', 'PG', 'R', 'R18'].map(rating => (
@@ -50,7 +50,7 @@ class Sidebar extends React.Component {
                                     name={rating}
                                     type="checkbox"
                                     checked={this.state.checkedRating.indexOf(rating) > -1}
-                                    onChange={this.handleRatingChange.bind(this)}
+                                    onChange={this.handleRatingChange}
                                 />
                                 {rating}
                             </label>
