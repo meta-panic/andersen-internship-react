@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 
 import Header from './Header/Header';
-import Sidebar from './Sidebar/Sidebar';
+import Sidebar from './Sidebar/SideBar';
 import CardList from './AnimeCards/CardList';
 import headerContant from './Header/headerContent';
 import styles from './App.css';
