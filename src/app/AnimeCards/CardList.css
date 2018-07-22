@@ -1,18 +1,18 @@
 .animeInfoContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: absolute;
-    left: 0;
-    top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 150px;
 
-    width: 60%;
-    margin-left: 20px;
+  width: 60%;
+  margin-left: 20px;
 
-    list-style: none;
+  list-style: none;
 }
 
 .animeInfo {
-    width: 110px;
-    margin-bottom: 20px;
+  width: 110px;
+  margin-bottom: 20px;
 }
