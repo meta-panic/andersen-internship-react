@@ -8,25 +8,25 @@ import styles from './CardList.css';
 const cx = classNames.bind(styles);
 
 const propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape(
-        {
-            attributes: PropTypes.shape({
-                canonicalTitle: PropTypes.string,
-            }),
-        },
-    )).isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape(
+    {
+      attributes: PropTypes.shape({
+        canonicalTitle: PropTypes.string,
+      }),
+    },
+  )).isRequired,
 };
 
 function CardList({ data }) {
-    return (
-        <ul className={cx('animeInfoContainer')}>
-            { data.map(card => (
-                <li className={cx('animeInfo')} key={card.id}>
-                    <AnimeCard attributes={card.attributes} />
-                </li>
-            ))}
-        </ul>
-    );
+  return (
+    <ul className={cx('animeInfoContainer')}>
+      { data.map(card => (
+        <li className={cx('animeInfo')} key={card.id}>
+          <AnimeCard attributes={card.attributes} />
+        </li>
+      ))} 
+    </ul>
+  );
 }
 
 CardList.propTypes = propTypes;
