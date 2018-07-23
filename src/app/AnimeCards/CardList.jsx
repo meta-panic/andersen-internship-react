@@ -24,7 +24,7 @@ function CardList({ data }) {
         <li className={cx('animeInfo')} key={card.id}>
           <AnimeCard attributes={card.attributes} />
         </li>
-      ))} 
+      ))}
     </ul>
   );
 }

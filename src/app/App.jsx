@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Header from './Header/Header';
 import Sidebar from './Sidebar/SideBar';
@@ -7,37 +9,42 @@ import CardList from './AnimeCards/CardList';
 import headerContant from './Header/headerContent';
 import styles from './App.css';
 
+const propTypes = {
+  isAnimeInfo: PropTypes.arrayOf(PropTypes.bool).isRequired,
+  animeInfo: PropTypes.arrayOf(PropTypes.shape(
+    {
+      attributes: PropTypes.shape({
+        canonicalTitle: PropTypes.string,
+      }),
+    },
+  )).isRequired,
+};
+
 const cx = classNames.bind(styles);
 
 class App extends React.Component {
-  state = {
-    isAnimeInfo: false,
-  };
-
-  addAnimeInfoHandler = (e, filterState) => {
-    fetch(`https://kitsu.io/api/edge/anime?filter[ageRating]=${filterState.checkedRating}&page[limit]=8&page[offset]=0`)
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({
-          isAnimeInfo: true,
-          animeInfo: data.data,
-        });
-      })
-      .catch(err => console.error(`Runtime error: ${err}`));
-    e.preventDefault();
-  };
-
   render() {
-    const { isAnimeInfo } = this.state;
-    const { animeInfo } = this.state;
+    const { isAnimeInfo: [isInfo] } = this.props;
+    const [animeInfo] = this.props.animeInfo;
+    const { message } = this.props.animeInfo[0];
+
     return (
       <div className={cx('сontainer')}>
         <Header content={headerContant} />
-        <Sidebar addAnimeInfoHandler={this.addAnimeInfoHandler} />
-        { isAnimeInfo ? <CardList data={animeInfo} /> : null}
+        <Sidebar />
+        { isInfo ? <CardList data={animeInfo.data} /> : null}
+        { typeof message === 'string' ? message : null}
       </div>
     );
   }
 }
 
-export default App;
+App.propTypes = propTypes;
+
+export default connect(
+  state => ({
+    isAnimeInfo: state.isAnimeInfo,
+    animeInfo: state.animeInfo,
+  }),
+  dispatch => ({}),
+)(App);

@@ -1,24 +1,23 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import styles from './SideBar.css';
+import actionsType from '../constants/actionTypes';
+import fetchAnimeInfo from '../actions/fetchAnimeAction';
 
 const propTypes = {
-  addAnimeInfoHandler: PropTypes.func.isRequired,
+  checkedRating: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const cx = classNames.bind(styles);
+
 const ageRatingArray = ['G', 'PG', 'R', 'R18'];
 
 class Sidebar extends React.Component {
-  state = {
-    checkedRating: ['G', 'R18'],
-  };
-
-  onClick = (event) => {
-    const { addAnimeInfoHandler } = this.props;
-    addAnimeInfoHandler(event, this.state);
+  onClick = () => {
+    this.props.onButtonPress(this.props.checkedRating);
   }
 
   handleRatingChange = (event) => {
@@ -26,12 +25,10 @@ class Sidebar extends React.Component {
     const isChecked = target.checked;
     const { name } = target;
 
-    this.setState((prevState) => {
-      const arr = new Set(prevState.checkedRating);
-      isChecked ? arr.add(name) : arr.delete(name);
+    const arr = new Set(this.props.checkedRating);
+    isChecked ? arr.add(name) : arr.delete(name);
 
-      return { checkedRating: Array.from(arr) };
-    });
+    this.props.onRatingChange(Array.from(arr));
   }
 
   render() {
@@ -51,7 +48,7 @@ class Sidebar extends React.Component {
                   id={rating}
                   name={rating}
                   type="checkbox"
-                  checked={this.state.checkedRating.indexOf(rating) > -1}
+                  checked={this.props.checkedRating.indexOf(rating) > -1}
                   onChange={this.handleRatingChange}
                 />
                 {rating}
@@ -66,4 +63,16 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = propTypes;
 
-export default Sidebar;
+export default connect(
+  state => ({
+    checkedRating: state.filter,
+  }),
+  dispatch => ({
+    onRatingChange: (filter) => {
+      dispatch({ type: actionsType.CHANGE_FILTER, rating: filter });
+    },
+    onButtonPress: (checkedRating) => {
+      dispatch(fetchAnimeInfo(checkedRating));
+    },
+  }),
+)(Sidebar);

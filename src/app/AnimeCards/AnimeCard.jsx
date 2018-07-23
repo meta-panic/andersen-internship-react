@@ -13,16 +13,22 @@ const animeInfo = {
 const cx = classNames.bind(styles);
 
 const getDuration = (startDate, endDate, status) => {
-  const starYear = startDate.slice(0, 4);
-  const endYear = endDate.slice(0, 4);
-  let duration;
+  let starYear, endYear, duration;
+  if (status === 'current' || status === 'finished') {
+    starYear = startDate.slice(0, 4);
+    endYear = endDate.slice(0, 4);
+  }
 
   switch (status) {
   case 'current':
     duration = `${starYear}-...`;
     break;
   case 'finished':
-    duration = `${starYear} - ${endYear}`;
+    if (starYear === endYear) {
+      duration = `${starYear}`;
+    } else {
+      duration = `${starYear} - ${endYear}`;
+    }
     break;
   default:
     duration = status;
