@@ -24,5 +24,7 @@ module.exports = {
     "no-console": ["error", { allow: ["warn", "error"] }],
     "no-tabs": 0,
     "react/prefer-stateless-function": "off",
+    "jsx-a11y/img-redundant-alt": "off",
+    "react/destructuring-assignment": "off",
   }
 };

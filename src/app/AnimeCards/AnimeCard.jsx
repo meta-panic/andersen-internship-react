@@ -13,7 +13,9 @@ const animeInfo = {
 const cx = classNames.bind(styles);
 
 const getDuration = (startDate, endDate, status) => {
-  let starYear, endYear, duration;
+  let starYear;
+  let endYear;
+  let duration;
   if (status === 'current' || status === 'finished') {
     starYear = startDate.slice(0, 4);
     endYear = endDate.slice(0, 4);
@@ -38,24 +40,23 @@ const getDuration = (startDate, endDate, status) => {
   return duration;
 };
 
-const AnimeCard = ({ attributes }) => {
-  return (
+const AnimeCard = ({ attributes }) => (
+  <div>
+    <img src={attributes.posterImage.tiny} alt="tiny image" />
+    <div className={cx('animeTitle')}>
+      {attributes.canonicalTitle}
+    </div>
     <div>
-      <img src={attributes.posterImage.tiny} alt="tiny image" />
-      <div className={cx('animeTitle')}>
-        {attributes.canonicalTitle}
-      </div>
-      <div>
-        {attributes.showType}
-      </div>
-      <div>
-        {getDuration(attributes.startDate, attributes.endDate, attributes.status)}
-      </div>
-      <div>
-        Rating: {attributes.ageRating}
-      </div>
-    </div>);
-};
+      {attributes.showType}
+    </div>
+    <div>
+      {getDuration(attributes.startDate, attributes.endDate, attributes.status)}
+    </div>
+    <div>
+      Rating:
+      {attributes.ageRating}
+    </div>
+  </div>);
 
 AnimeCard.propTypes = animeInfo;
 

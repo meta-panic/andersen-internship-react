@@ -16,6 +16,7 @@ const propTypes = {
       attributes: PropTypes.shape({
         canonicalTitle: PropTypes.string,
       }),
+      message: PropTypes.string,
     },
   )).isRequired,
 };

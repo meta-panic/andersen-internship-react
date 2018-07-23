@@ -9,6 +9,8 @@ import fetchAnimeInfo from '../actions/fetchAnimeAction';
 
 const propTypes = {
   checkedRating: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onRatingChange: PropTypes.func.isRequired,
+  onButtonPress: PropTypes.func.isRequired,
 };
 
 const cx = classNames.bind(styles);
