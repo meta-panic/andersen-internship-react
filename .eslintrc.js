@@ -22,5 +22,7 @@ module.exports = {
     "react/jsx-indent-props": ["error", 2],
     "no-unused-expressions": ["error", { "allowTernary": true }],
     "no-console": ["error", { allow: ["warn", "error"] }],
+    "no-tabs": 0,
+    "react/prefer-stateless-function": "off",
   }
 };
