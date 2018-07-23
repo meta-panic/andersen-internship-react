@@ -9,14 +9,14 @@ const cx = classNames.bind(styles);
 function Header(props) {
   const { content } = props;
   return (
-      <header className={cx('sidebar')}>
-          <h1 className={cx('title')}>
-              {content.title}
-          </h1>
-          <p className={cx('description')}>
-              {content.description}
-          </p>
-      </header>
+    <header className={cx('sidebar')}>
+      <h1 className={cx('title')}>
+        {content.title}
+      </h1>
+      <p className={cx('description')}>
+        {content.description}
+      </p>
+    </header>
   );
 }
 

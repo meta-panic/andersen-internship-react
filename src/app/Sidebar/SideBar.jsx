@@ -8,8 +8,8 @@ const propTypes = {
   addAnimeInfoHandler: PropTypes.func.isRequired,
 };
 
-const cx  = classNames.bind(styles);
-const rating = ['G', 'PG', 'R', 'R18'];
+const cx = classNames.bind(styles);
+const ageRatingArray = ['G', 'PG', 'R', 'R18'];
 
 class Sidebar extends React.Component {
   state = {
@@ -17,8 +17,9 @@ class Sidebar extends React.Component {
   };
 
   onClick = (event) => {
-    this.props.addAnimeInfoHandler(event, this.state);
-  };
+    const { addAnimeInfoHandler } = this.props;
+    addAnimeInfoHandler(event, this.state);
+  }
 
   handleRatingChange = (event) => {
     const { target } = event;
@@ -43,7 +44,7 @@ class Sidebar extends React.Component {
           <legend className={cx('filterName')}>
             Age rating
           </legend>
-          {rating.map(rating => (
+          {ageRatingArray.map(rating => (
             <div className={cx('checkbox')} key={rating}>
               <label htmlFor={rating}>
                 <input
