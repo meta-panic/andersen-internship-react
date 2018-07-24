@@ -4,7 +4,7 @@ const initialState = {
   data: {},
   loading: false,
   error: false,
-  errorMessage: null,
+  errorMessage: '',
 };
 
 const animeInfo = (state = initialState, action) => {
