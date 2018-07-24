@@ -1,34 +1,38 @@
-import actionsType from '../constants/actionTypes';
+import actionsType from '../actions/actionTypes';
 
 const initialState = {
   data: {},
   loading: false,
   error: false,
-  message: null,
+  errorMessage: null,
 };
 
 const animeInfo = (state = initialState, action) => {
   switch (action.type) {
   case actionsType.FETCH_ANIME_START:
-    return [
-      {
-        data: {}, loading: true, error: false,
-      },
-    ];
+    return {
+      ...state,
+      data: {},
+      loading: true,
+      error: false,
+    };
   case actionsType.FETCH_ANIME_SUCCESS:
-    return [
-      {
-        data: action.animeInfo, loading: false, error: false,
-      },
-    ];
+    return {
+      ...state,
+      data: action.animeInfo,
+      loading: false,
+      error: false,
+    };
   case actionsType.FETCH_ANIME_FAILURE:
-    return [
-      {
-        data: {}, loading: false, error: true, message: action.message,
-      },
-    ];
+    return {
+      ...state,
+      data: {},
+      loading: false,
+      error: true,
+      errorMessage: 'Loading error',
+    };
   default:
-    return [initialState];
+    return initialState;
   }
 };
 

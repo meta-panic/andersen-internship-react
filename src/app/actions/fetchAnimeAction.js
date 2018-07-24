@@ -1,4 +1,4 @@
-import actionsType from '../constants/actionTypes';
+import actionsType from './actionTypes';
 
 const startFetchAnimeInfo = () => ({ type: actionsType.FETCH_ANIME_START });
 
@@ -18,9 +18,6 @@ const fetchAnimeInfo = checkedRating => ((dispatch) => {
         } else {
           dispatch(fetchAnimeInfoSuccess(data));
         }
-      },
-      (err) => {
-        dispatch(fetchAnimeInfoError(err));
       },
     );
 });

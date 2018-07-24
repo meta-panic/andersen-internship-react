@@ -17,17 +17,15 @@ const propTypes = {
   )).isRequired,
 };
 
-function CardList({ data }) {
-  return (
-    <ul className={cx('animeInfoContainer')}>
-      { data.map(card => (
-        <li className={cx('animeInfo')} key={card.id}>
-          <AnimeCard attributes={card.attributes} />
-        </li>
-      ))}
-    </ul>
-  );
-}
+const CardList = ({ data }) => (
+  <ul className={cx('animeInfoContainer')}>
+    { data.map(card => (
+      <li className={cx('animeInfo')} key={card.id}>
+        <AnimeCard attributes={card.attributes} />
+      </li>
+    ))}
+  </ul>
+);
 
 CardList.propTypes = propTypes;
 

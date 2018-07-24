@@ -20,7 +20,7 @@
 
 /* button */
 .getAnimeButton {
-  composes: buttonReset from '../CSS/reset.css';
+  composes: buttonReset from '../../app/css/reset.css';
   display: block;
 
   margin: 5px 10px;
@@ -43,6 +43,6 @@
 }
 
 .checkbox {
-  composes: checkboxInputReset from '../CSS/reset.css';
-  composes: checkbox from '../CSS/elements.css';
+  composes: checkboxInputReset from '../../app/css/reset.css';
+  composes: checkbox from '../../app/css/elements.css';
 }
