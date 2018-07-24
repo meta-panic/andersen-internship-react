@@ -8,29 +8,28 @@ import Sidebar from '../Sidebar';
 import CardList from '../CardList';
 import headerContant from '../Header/headerContent';
 
-import commonStyles from '../../app/css/common.css';
 import styles from './App.css';
 
 const propTypes = {
-  animeInfo: PropTypes.arrayOf(PropTypes.shape(
-    {
-      attributes: PropTypes.shape({
-        canonicalTitle: PropTypes.string,
-      }),
-      message: PropTypes.string,
-    },
-  )).isRequired,
-};
+  data: PropTypes.object,
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
+}.isRequired;
 
-const cx = classNames.bind(styles, commonStyles);
+const cx = classNames.bind(styles);
 
 class App extends React.Component {
   render() {
     const { animeInfo } = this.props;
-    const { data, loading, errorMessage, error } = animeInfo;
+    const {
+      data,
+      loading,
+      errorMessage,
+      error,
+    } = animeInfo;
 
     return (
-      <div className={cx('сontainer', 'common')}>
+      <div className={cx('сontainer')}>
         <Header content={headerContant} />
         <Sidebar />
         { data.length > 0 ? <CardList data={data} /> : null}
