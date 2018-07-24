@@ -2,9 +2,7 @@ import actionsType from '../constants/actionTypes';
 
 const startFetchAnimeInfo = () => ({ type: actionsType.FETCH_ANIME_START });
 
-
 const fetchAnimeInfoSuccess = data => ({ type: actionsType.FETCH_ANIME_SUCCESS, animeInfo: data });
-
 
 const fetchAnimeInfoError = error => ({ type: actionsType.FETCH_ANIME_FAILURE, message: error });
 
