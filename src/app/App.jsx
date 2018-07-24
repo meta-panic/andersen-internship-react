@@ -8,6 +8,7 @@ import Sidebar from './Sidebar/SideBar';
 import CardList from './AnimeCards/CardList';
 import headerContant from './Header/headerContent';
 import styles from './App.css';
+import commonStyles from './css/common.css';
 
 const propTypes = {
   isAnimeInfo: PropTypes.arrayOf(PropTypes.bool).isRequired,
@@ -21,7 +22,7 @@ const propTypes = {
   )).isRequired,
 };
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles, commonStyles);
 
 class App extends React.Component {
   render() {
@@ -30,7 +31,7 @@ class App extends React.Component {
     const { message } = this.props.animeInfo[0];
 
     return (
-      <div className={cx('сontainer')}>
+      <div className={cx('сontainer', 'common')}>
         <Header content={headerContant} />
         <Sidebar />
         { isInfo ? <CardList data={animeInfo.data} /> : null}
