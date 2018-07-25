@@ -6,7 +6,7 @@
 }
 
 .title {
-  border-bottom: 2px solid #4EB1BA;
+  border-bottom: 2px solid var(--accent-color);
   margin-bottom: 10px;
 }
 

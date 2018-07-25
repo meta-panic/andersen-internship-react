@@ -6,19 +6,16 @@ import styles from './Header.css';
 
 const cx = classNames.bind(styles);
 
-function Header(props) {
-  const { content } = props;
-  return (
-    <header className={cx('sidebar')}>
-      <h1 className={cx('title')}>
-        {content.title}
-      </h1>
-      <p className={cx('description')}>
-        {content.description}
-      </p>
-    </header>
-  );
-}
+const Header = ({ content }) => (
+  <header className={cx('sidebar')}>
+    <h1 className={cx('title')}>
+      {content.title}
+    </h1>
+    <p className={cx('description')}>
+      {content.description}
+    </p>
+  </header>
+);
 
 /* check props types and existence */
 Header.propTypes = {

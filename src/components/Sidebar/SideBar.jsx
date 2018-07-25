@@ -1,37 +1,36 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import styles from './SideBar.css';
+import fetchAnimeInfo from '../../app/actions/fetchAnimeAction';
 
 const propTypes = {
-  addAnimeInfoHandler: PropTypes.func.isRequired,
+  onButtonPress: PropTypes.func.isRequired,
 };
 
 const cx = classNames.bind(styles);
+
 const ageRatingArray = ['G', 'PG', 'R', 'R18'];
 
 class Sidebar extends React.Component {
   state = {
-    checkedRating: ['G', 'R18'],
-  };
-
-  onClick = (event) => {
-    const { addAnimeInfoHandler } = this.props;
-    addAnimeInfoHandler(event, this.state);
+    rating: ageRatingArray[0],
   }
 
-  handleRatingChange = (event) => {
-    const { target } = event;
-    const isChecked = target.checked;
+  onClick = () => {
+    this.props.onButtonPress(this.state.rating);
+  }
+
+  handleRatingChange = ({ target }) => {
+    const { checked } = target;
     const { name } = target;
 
-    this.setState((prevState) => {
-      const arr = new Set(prevState.checkedRating);
-      isChecked ? arr.add(name) : arr.delete(name);
+    const newRating = new Set(this.state.rating);
+    checked ? newRating.add(name) : newRating.delete(name);
 
-      return { checkedRating: Array.from(arr) };
-    });
+    this.setState({ rating: Array.from(newRating) });
   }
 
   render() {
@@ -51,7 +50,7 @@ class Sidebar extends React.Component {
                   id={rating}
                   name={rating}
                   type="checkbox"
-                  checked={this.state.checkedRating.indexOf(rating) > -1}
+                  checked={this.state.rating.indexOf(rating) > -1}
                   onChange={this.handleRatingChange}
                 />
                 {rating}
@@ -66,4 +65,11 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = propTypes;
 
-export default Sidebar;
+export default connect(
+  state => ({}),
+  dispatch => ({
+    onButtonPress: (checkedRating) => {
+      dispatch(fetchAnimeInfo(checkedRating));
+    },
+  }),
+)(Sidebar);
