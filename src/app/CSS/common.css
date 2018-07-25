@@ -4,8 +4,12 @@
   font-family: sans-serif;
   background: var(--background-color);
   
-  /* theme*/
+  /* theme */
   --accent-color: #4EB1BA;
   --font-color: #E9E9E9;
   --background-color: #222930;
+}
+
+:global(body) {
+  margin: 0;
 }

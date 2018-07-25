@@ -2,3 +2,34 @@
   cursor: pointer;
   border-radius: 0;
 }
+
+.link {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+.link:visited {
+  color: var(--font-color);
+}
+
+.link:hover {
+  color: var(--accent-color);
+}
+
+.adaptiveImage {
+  display: block;
+  max-width: 95%;
+  height: auto;
+}
+
+
+.button {
+  display: block;
+
+  background-color: var(--font-color);
+}
+
+.button:hover {
+  background-color: var(--accent-color);
+  color: var(--font-color);
+}
