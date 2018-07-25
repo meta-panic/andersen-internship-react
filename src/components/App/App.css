@@ -1,13 +1,13 @@
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 819px) {
   .сontainer {
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
 
     color: var(--font-color);
   }
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 820px) {
   .сontainer { 
     position: relative;
     

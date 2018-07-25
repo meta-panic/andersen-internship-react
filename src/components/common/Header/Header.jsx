@@ -6,8 +6,15 @@ import styles from './Header.css';
 
 const cx = classNames.bind(styles);
 
+const propTypes = {
+  content: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+};
+
 const Header = ({ content }) => (
-  <header className={cx('sidebar')}>
+  <header>
     <h1 className={cx('title')}>
       {content.title}
     </h1>
@@ -17,12 +24,6 @@ const Header = ({ content }) => (
   </header>
 );
 
-/* check props types and existence */
-Header.propTypes = {
-  content: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-  }).isRequired,
-};
+Header.propTypes = propTypes;
 
 export default Header;

@@ -9,7 +9,7 @@ const animeInfo = {
   attributes: PropTypes.shape({
     canonicalTitle: PropTypes.string,
   }).isRequired,
-  animeId: PropTypes.number.isRequired,
+  animeId: PropTypes.string.isRequired,
 };
 
 const cx = classNames.bind(styles);
@@ -46,7 +46,15 @@ const AnimeCard = ({ attributes, animeId }) => (
   <div>
     <img src={attributes.posterImage.tiny} alt="tiny image" />
     <div className={cx('animeTitle')}>
-      <Link to={`/anime/`}>
+      <Link
+        className={cx('link')}
+        to={{
+          pathname: `/anime/${animeId}`,
+          state: {
+            animeInfo: attributes,
+          },
+        }}
+      >
         {attributes.canonicalTitle}
       </Link>
     </div>

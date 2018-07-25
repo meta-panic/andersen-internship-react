@@ -1,0 +1,17 @@
+.table {
+  line-height: 20px;
+}
+
+.left {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.right {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10px;
+
+  text-align: right;
+}

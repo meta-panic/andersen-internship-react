@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
-import Header from '../Header';
-import headerContant from '../Header/headerContent';
+import Header from '../common/Header';
+import headerContant from '../common/Header/headerContent';
 import Main from '../Main';
 import AnimePage from '../AnimePage';
 
@@ -18,7 +18,7 @@ class App extends React.Component {
         <Header content={headerContant} />
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route path="/anime" component={AnimePage} />
+          <Route path="/anime/:number" component={AnimePage} />
         </Switch>
       </div>
     );

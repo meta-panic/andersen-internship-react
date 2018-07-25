@@ -21,7 +21,7 @@ const CardList = ({ data }) => (
   <ul className={cx('animeInfoContainer')}>
     { data.map(card => (
       <li className={cx('animeInfo')} key={card.id}>
-        <AnimeCard attributes={card.attributes} />
+        <AnimeCard attributes={card.attributes} animeId={card.id} />
       </li>
     ))}
   </ul>
