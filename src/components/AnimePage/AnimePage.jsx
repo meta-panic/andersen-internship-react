@@ -21,7 +21,6 @@ const propTypes = {
 
 class AnimePage extends React.Component {
   render() {
-    console.log(this.props.history);
     const { animeInfo } = this.props.location.state;
     return (
       <div className={cx('animePage')}>
