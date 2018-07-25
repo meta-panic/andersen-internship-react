@@ -1,39 +1,63 @@
-@media screen and (max-width: 800px) {
-  .сontainer {
-    width: 80vw;
+@media screen and (max-width: 499px) {
+  .animeImage {
+    composes: adaptiveImage from '../../app/css/elements.css';
     margin: 0 auto;
-
-    color: var(--font-color);
   }
-}
 
-@media screen and (min-width: 801px) {
-  .сontainer { 
-    position: relative;
-    
-    width: 800px;
-    margin: 0 auto;
-    
+  .animeImageContainer {
+    flex-basis:100vw;
+  }
+
+  .infoTableContainer {
+    flex-basis:100vw;
+
     font-size: 16px;
-    color: var(--font-color);
   }
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  margin-top: 10px;
-
-  border: 5px solid rgba(105, 105, 105, 0.5);
-  border-top: 5px solid rgb(255, 255, 255);
-
-  border-radius: 50%;
   
-  animation: spin 2s linear infinite;
+  .synopsisContainer {
+    flex-basis:100vw;
+  }  
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@media screen and (min-width: 500px) {
+  .animeImage { 
+    margin: 0 auto;
+  }
+
+  .animeImageContainer {
+    flex-basis: 50%;
+  }
+
+  .infoTableContainer {
+    flex-basis: 50%;
+
+    font-size: 16px;
+  }
+  
+  .synopsisContainer {
+    flex-basis: 100%;
+  }  
 }
+
+/* common parties of anime page*/
+.animePage {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.baskArrowContainer {
+  width: 100%;
+}
+
+.baskArrow {
+  composes: buttonReset from '../../app/css/reset.css';
+  composes: button from '../../app/css/elements.css';
+  margin-bottom: 10px;
+
+  font-size: 20px;
+}
+
+.synopsisContainer {
+  margin-top: 10px;
+}  
