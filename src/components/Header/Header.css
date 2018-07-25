@@ -1,0 +1,15 @@
+.sidebar {
+  height: 80px;
+  width: 100%;
+  display: inline-block;
+  margin-top: 40px;
+}
+
+.title {
+  border-bottom: 2px solid var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 10px;
+}
