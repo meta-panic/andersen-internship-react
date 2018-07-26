@@ -8,7 +8,10 @@ const cx = classNames.bind(styles);
 
 const propTypes = {
   leftInfo: PropTypes.string.isRequired,
-  rightInfo: PropTypes.string.isRequired,
+  rightInfo: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 const TableRow = ({ leftInfo, rightInfo }) => (

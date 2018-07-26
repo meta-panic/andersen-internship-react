@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import commonStyle from './app/css/common.css';
+import './app/css/common.css';
 
 import registerServiceWorker from './registerServiceWorker';
 
