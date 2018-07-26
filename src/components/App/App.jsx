@@ -11,18 +11,14 @@ import styles from './App.css';
 
 const cx = classNames.bind(styles);
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className={cx('сontainer')}>
-        <Header content={headerContant} />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/anime/:number" component={AnimePage} />
-        </Switch>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className={cx('сontainer')}>
+    <Header content={headerContant} />
+    <Switch>
+      <Route exact path="/" component={Main} />
+      <Route path="/anime/:number" component={AnimePage} />
+    </Switch>
+  </div>
+);
 
 export default App;
