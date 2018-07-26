@@ -1,3 +1,1 @@
-import AnimePage from './AnimePage';
-
-export default AnimePage;
+export { default } from './AnimePage';
