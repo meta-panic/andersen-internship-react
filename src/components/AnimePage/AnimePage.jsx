@@ -17,6 +17,9 @@ const propTypes = {
       }),
     }),
   }).isRequired,
+  history: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
 };
 
 class AnimePage extends React.Component {
