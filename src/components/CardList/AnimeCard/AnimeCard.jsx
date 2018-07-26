@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
 import styles from './AnimeCard.css';
 
@@ -8,6 +9,7 @@ const animeInfo = {
   attributes: PropTypes.shape({
     canonicalTitle: PropTypes.string,
   }).isRequired,
+  animeId: PropTypes.string.isRequired,
 };
 
 const cx = classNames.bind(styles);
@@ -40,11 +42,21 @@ const getDuration = (startDate, endDate, status) => {
   return duration;
 };
 
-const AnimeCard = ({ attributes }) => (
+const AnimeCard = ({ attributes, animeId }) => (
   <div>
     <img src={attributes.posterImage.tiny} alt="tiny image" />
     <div className={cx('animeTitle')}>
-      {attributes.canonicalTitle}
+      <Link
+        className={cx('link')}
+        to={{
+          pathname: `/anime/${animeId}`,
+          state: {
+            animeInfo: attributes,
+          },
+        }}
+      >
+        {attributes.canonicalTitle}
+      </Link>
     </div>
     <div>
       {attributes.showType}

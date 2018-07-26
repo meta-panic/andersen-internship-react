@@ -1,0 +1,63 @@
+@media screen and (max-width: 499px) {
+  .animeImage {
+    composes: adaptiveImage from '../../app/css/elements.css';
+    margin: 0 auto;
+  }
+
+  .animeImageContainer {
+    flex-basis:100vw;
+  }
+
+  .infoTableContainer {
+    flex-basis:100vw;
+
+    font-size: 16px;
+  }
+  
+  .synopsisContainer {
+    flex-basis:100vw;
+  }  
+}
+
+@media screen and (min-width: 500px) {
+  .animeImage { 
+    margin: 0 auto;
+  }
+
+  .animeImageContainer {
+    flex-basis: 50%;
+  }
+
+  .infoTableContainer {
+    flex-basis: 50%;
+
+    font-size: 16px;
+  }
+  
+  .synopsisContainer {
+    flex-basis: 100%;
+  }  
+}
+
+/* common parties of anime page*/
+.animePage {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.baskArrowContainer {
+  width: 100%;
+}
+
+.baskArrow {
+  composes: buttonReset from '../../app/css/reset.css';
+  composes: button from '../../app/css/elements.css';
+  margin-bottom: 10px;
+
+  font-size: 20px;
+}
+
+.synopsisContainer {
+  margin-top: 10px;
+}  
