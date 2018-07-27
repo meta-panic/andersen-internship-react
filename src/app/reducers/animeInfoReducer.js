@@ -9,7 +9,7 @@ const initialState = {
 
 const animeInfo = (state = initialState, action) => {
   switch (action.type) {
-  case actionTypes.FETCH_ANIME_START:
+  case actionTypes.FETCH_ANIME_REQUEST:
     return {
       ...state,
       data: {},
