@@ -5,7 +5,7 @@ const apiMiddleware = store => next => (action) => {
 
   if (action.type === actionTypes.API_CALL) {
     store.dispatch({
-      type: requestTypeConcat(requestType, 'START'),
+      type: requestTypeConcat(requestType, 'REQUEST'),
     });
 
     return fetch(`https://kitsu.io/api/edge/anime?${url}&page[limit]=8&page[offset]=0`)
@@ -31,7 +31,6 @@ const apiMiddleware = store => next => (action) => {
         }),
       );
   }
-
   return next(action);
 };
 
