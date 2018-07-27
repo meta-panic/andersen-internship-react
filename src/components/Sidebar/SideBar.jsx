@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from './SideBar.css';
-import fetchAnimeInfo from '../../app/actions/fetchAnimeAction';
+import fetchAnimeInfo from '../../app/actions/apiActions';
 
 const propTypes = {
   onButtonPress: PropTypes.func.isRequired,
@@ -65,11 +65,10 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = propTypes;
 
+
 export default connect(
   state => ({}),
-  dispatch => ({
-    onButtonPress: (checkedRating) => {
-      dispatch(fetchAnimeInfo(checkedRating));
-    },
-  }),
+  {
+    onButtonPress: fetchAnimeInfo,
+  },
 )(Sidebar);
