@@ -18,11 +18,12 @@ const apiMiddleware = store => next => (action) => {
               type: requestTypeConcat(requestType, 'FAILURE'),
               message: 'Sorry, this filter isn\'t correct',
             });
+          } else {
+            store.dispatch({
+              type: requestTypeConcat(requestType, 'SUCCESS'),
+              animeInfo: data,
+            });
           }
-          store.dispatch({
-            type: requestTypeConcat(requestType, 'SUCCESS'),
-            animeInfo: data,
-          });
         },
         err => store.dispatch({
           type: requestTypeConcat(requestType, 'FAILURE'),
