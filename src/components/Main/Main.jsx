@@ -22,15 +22,13 @@ class Main extends React.Component {
     const {
       data,
       loading,
-      errorMessage,
-      error,
     } = animeInfo;
 
     return (
       <div className={cx('main')}>
         <Sidebar />
         { data.length > 0 ? <CardList data={data} /> : null}
-        { error ? errorMessage : null}
+        { data.length === 0 ? 'Error during data loading' : null }
         { loading ? <div className={cx('spinner')} /> : null}
       </div>
     );
