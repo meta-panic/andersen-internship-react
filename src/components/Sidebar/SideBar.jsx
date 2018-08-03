@@ -34,6 +34,10 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    if ([this.state.rating] == 'R18') {
+      throw new Error('Don\'t change a rating');
+    }
+
     return (
       <aside className={cx('sidebar')}>
         <button className={cx('getAnimeButton')} type="button" onClick={this.onClick}>
@@ -65,10 +69,4 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = propTypes;
 
-
-export default connect(
-  state => ({}),
-  {
-    onButtonPress: fetchAnimeInfo,
-  },
-)(Sidebar);
+export default connect(null, { onButtonPress: fetchAnimeInfo })(Sidebar);

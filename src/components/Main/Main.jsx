@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Sidebar from '../Sidebar';
 import CardList from '../CardList';
+import errorBoundariesHOC from '../common/hocs/errorBoundariesHOC';
 
 import styles from './Main.css';
 
@@ -24,9 +25,11 @@ class Main extends React.Component {
       loading,
     } = animeInfo;
 
+    const SidebarWithErrorHandling = errorBoundariesHOC(Sidebar)();
+
     return (
       <div className={cx('main')}>
-        <Sidebar />
+        <SidebarWithErrorHandling />
         { data.length > 0 ? <CardList data={data} /> : null}
         { data.length === 0 ? 'Error during data loading' : null }
         { loading ? <div className={cx('spinner')} /> : null}
@@ -41,5 +44,4 @@ export default connect(
   state => ({
     animeInfo: state.animeInfo,
   }),
-  dispatch => ({}),
 )(Main);
