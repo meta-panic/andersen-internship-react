@@ -17,7 +17,7 @@ const propTypes = {
 
 const cx = classNames.bind(styles);
 
-class Main extends React.Component {
+class Main extends React.PureComponent {
   render() {
     const { animeInfo } = this.props;
     const {

@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 
 const ageRatingArray = ['G', 'PG', 'R', 'R18'];
 
-class Sidebar extends React.Component {
+class Sidebar extends React.PureComponent {
   state = {
     rating: ageRatingArray[0],
   }
@@ -24,13 +24,12 @@ class Sidebar extends React.Component {
   }
 
   handleRatingChange = ({ target }) => {
-    const { checked } = target;
-    const { name } = target;
-
-    const newRating = new Set(this.state.rating);
-    checked ? newRating.add(name) : newRating.delete(name);
-
-    this.setState({ rating: Array.from(newRating) });
+    const { checked, name } = target;
+    this.setState((state) => {
+      const newRating = new Set(state.rating);
+      checked ? newRating.add(name) : newRating.delete(name);
+      return { rating: Array.from(newRating) };
+    });
   }
 
   render() {
