@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
 import thunk from 'redux-thunk';
+import apiMiddleware from './app/middlewares';
 
 import reducers from './app/reducers';
 
@@ -14,12 +16,11 @@ export default function configureStore() {
     const logger = createLogger();
     middlewares.push(logger);
   }
-
-  const composeEnhancers = composeWithDevTools({});
+  middlewares.push(apiMiddleware);
 
   const store = createStore(
     reducers,
-    composeEnhancers(applyMiddleware(...middlewares)),
+    composeWithDevTools(applyMiddleware(...middlewares)),
   );
 
   return store;

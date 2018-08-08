@@ -1,4 +1,4 @@
-import actionsType from '../actions/actionTypes';
+import { actionTypes } from '../actions/actionTypes';
 
 const initialState = {
   data: {},
@@ -9,21 +9,21 @@ const initialState = {
 
 const animeInfo = (state = initialState, action) => {
   switch (action.type) {
-  case actionsType.FETCH_ANIME_START:
+  case actionTypes.FETCH_ANIME_REQUEST:
     return {
       ...state,
       data: {},
       loading: true,
       error: false,
     };
-  case actionsType.FETCH_ANIME_SUCCESS:
+  case actionTypes.FETCH_ANIME_SUCCESS:
     return {
       ...state,
       data: action.animeInfo,
       loading: false,
       error: false,
     };
-  case actionsType.FETCH_ANIME_FAILURE:
+  case actionTypes.FETCH_ANIME_FAILURE:
     return {
       ...state,
       data: {},
