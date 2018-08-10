@@ -20,10 +20,7 @@ const cx = classNames.bind(styles);
 class Main extends React.PureComponent {
   render() {
     const { animeInfo } = this.props;
-    const {
-      data,
-      loading,
-    } = animeInfo;
+    const { data, loading } = animeInfo;
 
     const SidebarWithErrorHandling = errorBoundariesHOC(Sidebar)();
 
