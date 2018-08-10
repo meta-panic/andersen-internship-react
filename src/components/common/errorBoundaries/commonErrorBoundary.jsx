@@ -14,8 +14,6 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
-    console.log("LOL2");
-    console.log(this.state);
     if (this.state.errorInfo) {
       return (
         <div>
