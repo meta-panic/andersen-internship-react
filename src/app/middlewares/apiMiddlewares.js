@@ -1,6 +1,8 @@
 import { actionTypes, requestTypeConcat } from '../actions/actionTypes';
 
-const apiMiddleware = store => next => (action) => {
+export const ROOT_URL = 'https://kitsu.io/api/edge/anime?';
+
+export const apiMiddleware = store => next => (action) => {
   const { url, requestType } = action;
 
   if (action.type === actionTypes.API_CALL) {
@@ -8,22 +10,19 @@ const apiMiddleware = store => next => (action) => {
       type: requestTypeConcat(requestType, 'REQUEST'),
     });
 
-    return fetch(`https://kitsu.io/api/edge/anime?${url}`)
+    return fetch(`${ROOT_URL}${url}`)
       .then(res => res.json())
       .then(
-        ({ data }) => {
+        (response) => {
           store.dispatch({
             type: requestTypeConcat(requestType, 'SUCCESS'),
-            animeInfo: data,
+            animeInfo: response.data,
           });
         },
-        err => store.dispatch({
-          type: requestTypeConcat(requestType, 'FAILURE'),
-          message: err,
+        () => store.dispatch({
+          type: requestTypeConcat(requestType, 'FAILURE')
         }),
       );
   }
   return next(action);
 };
-
-export default apiMiddleware;

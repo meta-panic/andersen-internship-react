@@ -3,7 +3,7 @@ import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import thunk from 'redux-thunk';
-import apiMiddleware from './app/middlewares';
+import { apiMiddleware } from './app/middlewares';
 
 import reducers from './app/reducers';
 

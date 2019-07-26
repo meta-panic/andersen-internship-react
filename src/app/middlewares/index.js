@@ -1,1 +1,1 @@
-export { default } from './apiMiddlewares';
+export * from './apiMiddlewares';
