@@ -20,7 +20,7 @@ module.exports = {
     "spaced-comment": ["error", "always"],
     "indent": ["error", 2],
     "react/jsx-indent": ["error", 2],
-    "react/jsx-indent-props": ["error", 2],
+    "react/prop-types": 0,
     "no-unused-expressions": ["error", { "allowTernary": true }],
     "no-console": ["error", { allow: ["warn", "error"] }],
     "no-tabs": 0,
