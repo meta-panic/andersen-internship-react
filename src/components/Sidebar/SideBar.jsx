@@ -33,10 +33,6 @@ class Sidebar extends React.PureComponent {
   }
 
   render() {
-    if ([this.state.rating] == 'R18') {
-      throw new Error('Don\'t change a rating');
-    }
-
     return (
       <aside className={cx('sidebar')}>
         <button className={cx('getAnimeButton')} type="button" onClick={this.onClick}>
