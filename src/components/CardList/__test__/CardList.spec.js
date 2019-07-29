@@ -1,7 +1,7 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
-import CardList from './CardList';
+import CardList from '../CardList';
 
 configure({ adapter: new Adapter() });
 
