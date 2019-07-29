@@ -42,3 +42,4 @@ export default connect(
     animeInfo: state.animeInfo,
   }),
 )(Main);
+export { Main };
