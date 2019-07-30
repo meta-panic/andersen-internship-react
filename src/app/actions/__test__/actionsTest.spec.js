@@ -19,7 +19,8 @@ describe('test asunc actions are properly created', () => {
     fetchMock.reset();
     fetchMock.restore();
   });
-it('creates FETCH_ANIME_REQUEST->FETCH_ANIME_SUCCESS when fetching G raited anime has been done', () => {
+
+  it('creates FETCH_ANIME_REQUEST->FETCH_ANIME_SUCCESS when fetching G raited anime has been done', () => {
     const ageFilter = 'G';
     fetchMock.getOnce(`${ROOT_URL}filter[ageRating]=${ageFilter}&page[limit]=8&page[offset]=0`, {
       headers: { 'content-type': 'application/json' },
@@ -41,6 +42,7 @@ it('creates FETCH_ANIME_REQUEST->FETCH_ANIME_SUCCESS when fetching G raited anim
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+
   it('creates FETCH_ANIME_REQUEST->FETCH_ANIME_FAILURE when fetching G raited anime has returned 404', () => {
     const ageFilter = 'G';
     fetchMock.getOnce(`${ROOT_URL}filter[ageRating]=${ageFilter}&page[limit]=8&page[offset]=0`, 404);
@@ -60,6 +62,7 @@ it('creates FETCH_ANIME_REQUEST->FETCH_ANIME_SUCCESS when fetching G raited anim
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+
   it('picked no one raiting radio button', () => {
     const ageFilter = '';
     fetchMock.getOnce(`${ROOT_URL}filter[ageRating]=${ageFilter}&page[limit]=8&page[offset]=0`, {

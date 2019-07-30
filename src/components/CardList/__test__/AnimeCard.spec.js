@@ -18,20 +18,27 @@ describe('Corrent AnimeCard rendering', () => {
     },
     animeId: '1',
   };
+
   it('title', () => {
     // const cardList = shallow(<CardList {...props} />);
     // expect(cardList.find('AnimeCard')).toHaveLength(2);
   });
+
   it('rating', () => {
   });
+
   it('link', () => {
   });
+
   it('image', () => {
   });
+
   it('duration', () => {
   });
+
   it('check correct structures', () => {
   });
+
   it('check correct styles', () => {
   });
 });
@@ -49,6 +56,7 @@ describe('test routing by link', () => {
     },
     animeId: '1',
   };
+
   it('', () => {
   });
 });

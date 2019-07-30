@@ -13,6 +13,7 @@ describe('Main container', () => {
     },
   };
   const errorMessage = 'Error during data loading';
+
   it('init rendering Main', () => {
     const mainContainer = shallow(<Main {...initialProps} />);
 
@@ -22,6 +23,7 @@ describe('Main container', () => {
     expect(mainContainer.find('CardList')).toHaveLength(0);
     expect(mainContainer.find('div.main div.spinner')).toHaveLength(0);
   });
+
   it('rendering Main when we have not any data', () => {
     const props = { // описываем props
       ...initialProps,
@@ -38,6 +40,7 @@ describe('Main container', () => {
     expect(mainContainer.find('CardList')).toHaveLength(0);
     expect(mainContainer.find('div.main div.spinner')).toHaveLength(0);
   });
+
   it('rendering Main while loading', () => {
     const props = { // описываем props
       ...initialProps,
@@ -54,6 +57,7 @@ describe('Main container', () => {
     expect(mainContainer.find('CardList')).toHaveLength(0);
     expect(mainContainer.find('div.main div.spinner')).toHaveLength(1);
   });
+
   it('rendering Main while we have already gotten all data', () => {
     const props = { // описываем props
       ...initialProps,

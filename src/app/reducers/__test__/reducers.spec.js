@@ -12,6 +12,7 @@ describe('anime getting reducers', () => {
       loading: true,
     });
   });
+
   it('FETCH_ANIME_SUCCESS after loading app', () => {
     const action = {
       type: t.FETCH_ANIME_SUCCESS,
@@ -29,6 +30,7 @@ describe('anime getting reducers', () => {
       loading: false,
     });
   });
+
   it('FETCH_ANIME_FAILURE', () => {
     const action = {
       type: t.FETCH_ANIME_FAILURE,

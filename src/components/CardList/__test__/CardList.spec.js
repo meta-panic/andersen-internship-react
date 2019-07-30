@@ -21,6 +21,7 @@ describe('CardList testing', () => {
         id: '2',
       }],
   };
+
   it('rendering 2 <AnimeCard /> CardList', () => {
     const cardList = shallow(<CardList {...props} />);
     expect(cardList.find('AnimeCard')).toHaveLength(2);
@@ -37,6 +38,7 @@ describe('CardList testing', () => {
         .find('AnimeCard'),
     ).toHaveLength(1);
   });
+
   it('rendering CardList with the right classes', () => {
     const cardList = shallow(<CardList {...props} />);
     expect(cardList
