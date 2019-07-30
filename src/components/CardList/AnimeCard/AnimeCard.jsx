@@ -65,8 +65,7 @@ const AnimeCard = ({ attributes, animeId }) => (
       {getDuration(attributes.startDate, attributes.endDate, attributes.status)}
     </div>
     <div>
-      Rating:
-      {attributes.ageRating}
+      {`Rating: ${attributes.ageRating}`}
     </div>
   </div>);
 
