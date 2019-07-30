@@ -12,7 +12,7 @@ const propTypes = {
 
 const cx = classNames.bind(styles);
 
-const ageRatingArray = ['G', 'PG', 'R', 'R18'];
+export const ageRatingArray = ['G', 'PG', 'R', 'R18'];
 
 class Sidebar extends React.PureComponent {
   state = {
@@ -24,6 +24,7 @@ class Sidebar extends React.PureComponent {
   }
 
   handleRatingChange = ({ target }) => {
+    console.log('target')
     const { checked, name } = target;
     this.setState((state) => {
       const newRating = new Set(state.rating);
@@ -65,3 +66,4 @@ class Sidebar extends React.PureComponent {
 Sidebar.propTypes = propTypes;
 
 export default connect(null, { onButtonPress: fetchAnimeInfo })(Sidebar);
+export { Sidebar };
